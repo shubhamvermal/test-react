@@ -1,0 +1,199 @@
+@import './size.scss';
+@import './screen.scss';
+@import './font.scss';
+
+html {
+  position: relative;
+  height: 100%;
+  font-family: $regular;
+  font-size: $fontroot-desktop;
+  @include mobile {
+    font-size: $fontroot-mobile;
+  }
+  @include tablet {
+    font-size: $fontroot-tablet;
+  }
+  background: #eeeeee63;
+}
+
+body {
+  font-family: $regular;
+  font-size: 16px;
+  margin: 0 auto;
+  background: #fff;
+  overflow-wrap: break-word;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+$spaceamounts: (
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  75,
+  100
+); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
+@each $space in $spaceamounts {
+  .m-#{$space} {
+    margin: #{$space}px !important;
+  }
+  .p-#{$space} {
+    padding: #{$space}px !important;
+  }
+}
+
+$alignments: (center, left, right); // Leave this variable alone
+
+@each $align in $alignments {
+  .text-align-#{$align} {
+    text-align: #{$align} !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+select {
+  font-family: $regular;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.between-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evenly-flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.around-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
+a {
+  opacity: initial;
+  color: #161616;
+  text-decoration: none;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+/** Font Family Classes Started **/
+.light {
+  font-family: $light;
+}
+
+.regular {
+  font-family: $regular;
+}
+
+.super {
+  font-family: $standard_super;
+}
+
+.bold {
+  font-family: $bold;
+}
+/** Font Family Classes Ended **/
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+  z-index: 99;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background-color: rgba(25, 24, 22, 0.5);
+  overflow: scroll;
+}
+
+.fa-facebook {
+ color: #3b5998;
+}
+
+.fa-twitter {
+ color:#55acee;
+}
+
+.fa-pinterest {
+ color: #cc2127;
+}
+.fa-linkedin {
+ color: #0976b4;
+}

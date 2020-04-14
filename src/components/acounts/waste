@@ -1,0 +1,179 @@
+
+
+
+
+<div class="wrapper main-content" role="main">
+                    <div class="grid">
+                        <div class="grid__item">
+                            <div class="grid">
+                                <div class="grid__item wide--one-third large--one-half small--text-center">
+                                    <div class="note form-success" id="ResetSuccess" style={{ display: 'none' }}>
+                                        We've sent you an email with a link to update your password.
+                                    </div>
+                                    <div id="CustomerLoginForm">
+                                        <form method="post" action="/account/login" id="customer_login" accept-charset="UTF-8">
+                                            <input type="hidden" name="form_type" value="customer_login" />
+                                            <input type="hidden" name="utf8" value="✓" />
+                                            <div class="section-header section-header--large">
+                                                <h1 class="section-header__title">Login</h1>
+                                            </div>
+                                            <label for="CustomerEmail" class="label--hidden">Email</label>
+                                            <input type="email" name="customer[email]" id="CustomerEmail" placeholder="Email" autocorrect="off" autocapitalize="off" autofocus="" />
+                                            <label for="CustomerPassword" class="label--hidden">Password</label>
+                                            <input type="password" value="" name="customer[password]" id="CustomerPassword" placeholder="Password" />
+                                            <p>
+                                                <a href="#" onclick="showRecoverPasswordForm();return false;">Forgot your password?</a>
+                                            </p>
+                                            <p>
+                                                <input type="submit" class="btn karnival-primary-btn" style={{ width: '10rem' }} value="Sign In" />
+                                            </p>
+                                            <p>
+                                                <a href="/account/register" id="customer_register_link">Create account</a>
+                                            </p>
+                                            <a href="https://karnival.com">Return to Store</a>
+                                        </form>
+                                    </div>
+                                    <div id="RecoverPasswordForm" style={{ display: 'none' }}>
+                                        <div class="section-header section-header--large">
+                                            <h2 class="section-header__title">Reset your password</h2>
+                                        </div>
+                                        <p>We will send you an email to reset your password.</p>
+                                        <form method="post" action="/account/recover" accept-charset="UTF-8">
+                                            <input type="hidden" name="form_type" value="recover_customer_password" />
+                                            <input type="hidden" name="utf8" value="✓" />
+                                            <label for="RecoverEmail" class="label--hidden">Email</label>
+                                            <input type="email" value="" name="email" id="RecoverEmail" placeholder="Email" autocorrect="off" autocapitalize="off" />
+                                            <p>
+                                                <input type="submit" class="btn" value="Submit" />
+                                            </p>
+                                            <a href="#" onclick="hideRecoverPasswordForm();return false;">Cancel</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+
+
+
+                {/* <form onSubmit={handleSubmit(this.submitdata)}>
+                <Field name="username" type="text" component={this.renderField} label="Username" />
+                <Field name="email" type="email" component={this.renderField} label="Email" />
+                <Field name="age" type="number" component={this.renderField} label="phone" />
+                <div>
+                    <button type="submit" disabled={submitting}>Submit</button>
+                </div>
+            </form> */}
+
+
+
+
+
+// class Login extends React.Component {
+
+//     submitData = data => {
+
+//         console.log( JSON.stringify(data, null, 2))
+//     }
+//     render() {
+//         const { pristine, reset, submitting, handleSubmit } = this.props;
+//         return (
+//             <form onSubmit={handleSubmit(this.submitData)}>
+//                 <div>
+//                     <label>First Name</label>
+//                     <div>
+//                         <Field
+//                             name="firstName"
+//                             component="input"
+//                             type="text"
+//                             placeholder="First Name"
+//                         />
+//                     </div>
+//                 </div>
+//                 <div>
+//                     <label>Last Name</label>
+//                     <div>
+//                         <Field
+//                             name="lastName"
+//                             component="input"
+//                             type="text"
+//                             placeholder="Last Name"
+//                         />
+//                     </div>
+//                 </div>
+//                 <div>
+//                     <label>Email</label>
+//                     <div>
+//                         <Field
+//                             name="email"
+//                             component="input"
+//                             type="email"
+//                             placeholder="Email"
+//                         />
+//                     </div>
+//                 </div>
+//                 <div>
+//                     <label>Sex</label>
+//                     <div>
+//                         <label>
+//                             <Field name="sex" component="input" type="radio" value="male" />
+
+//                             Male
+//                     </label>
+//                         <label>
+//                             <Field name="sex" component="input" type="radio" value="female" />
+//                             {' '}
+//                             Female
+//                         </label>
+//                     </div>
+//                 </div>
+//                 <div>
+//                     <label>Favorite Color</label>
+//                     <div>
+//                         <Field name="favoriteColor" component="select">
+//                             <option />
+//                             <option value="ff0000">Red</option>
+//                             <option value="00ff00">Green</option>
+//                             <option value="0000ff">Blue</option>
+//                         </Field>
+//                     </div>
+//                 </div>
+//                 <div>
+//                     <label htmlFor="employed">Employed</label>
+//                     <div>
+//                         <Field
+//                             name="employed"
+//                             id="employed"
+//                             component="input"
+//                             type="checkbox"
+//                         />
+//                     </div>
+//                 </div>
+//                 <div>
+//                     <label>Notes</label>
+//                     <div>
+//                         <Field name="notes" component="textarea" />
+//                     </div>
+//                 </div>
+//                 <div>
+//                     <Field
+//                        name ='nema' component='input' type='password'/>
+//                 </div>
+//                 <div>
+//                     <button type="submit" disabled={pristine || submitting}>Submit</button>
+//                     <button type="button" disabled={pristine || submitting} onClick={reset}>
+//                         Clear Values
+//                     </button>
+//                 </div>
+//             </form>
+//         )
+//     }
+// };
+
+// export default reduxForm({
+//     form: 'login', // a unique identifier for this form
+// })(Login);
+
+
